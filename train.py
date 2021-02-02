@@ -49,7 +49,8 @@ def train(cfg):
             'val_num': cfg.val.val_num,
             'batch_size': cfg.train.batch_size,
             'num_workers': cfg.num_workers,
-            'shuffle': False
+            'shuffle': True,
+            'pin_memory': True
         }
         val_loader = VideoQADataLoader(**val_loader_kwargs)
         logging.info("number of val instances: {}".format(len(val_loader.dataset)))
@@ -120,6 +121,7 @@ def train(cfg):
                 batch_agg = np.concatenate(np.tile(np.arange(batch_size).reshape([batch_size, 1]),
                                                    [1, 5])) * 5  # [0, 0, 0, 0, 0, 5, 5, 5, 5, 1, ...]
                 answers_agg = tile(answers, 0, 5)
+                print(torch.tensor(0.0).cuda())
                 loss = torch.max(torch.tensor(0.0).cuda(),
                                  1.0 + logits - logits[answers_agg + torch.from_numpy(batch_agg).cuda()])
                 loss = loss.sum()

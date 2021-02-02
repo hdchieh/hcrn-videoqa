@@ -24,6 +24,7 @@ conda create -n hcrn_videoqa python=3.6
 conda activate hcrn_videoqa
 conda install -c conda-forge ffmpeg
 conda install -c conda-forge scikit-video
+conda install pytorch==1.4.0 torchvision==0.5.0 -c pytorch
 pip install -r requirements.txt
 ```
 
@@ -48,6 +49,9 @@ python preprocess/preprocess_features.py --dataset tgif-qa --model resnext101 --
 
 ```
 cat tgif-qa_{question_type}_appearance_feat.h5.part* > tgif-qa_{question_type}_appearance_feat.h5
+cat tgif-qa_count_appearance_feat.h5.part* > tgif-qa_count_appearance_feat.h5
+cat tgif-qa_frameqa_appearance_feat.h5.part* > tgif-qa_frameqa_appearance_feat.h5
+cat tgif-qa_transition_appearance_feat.h5.part* > tgif-qa_transition_appearance_feat.h5
 ```
 
 #### Proprocess linguistic features

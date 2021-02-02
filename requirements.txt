@@ -8,3 +8,7 @@ torchvision==0.2.1
 tqdm
 termcolor
 pyyaml
+h5py
+tqdm
+easydict
+pyyaml
