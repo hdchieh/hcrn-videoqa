@@ -25,6 +25,9 @@ conda activate hcrn_videoqa
 conda install -c conda-forge ffmpeg
 conda install -c conda-forge scikit-video
 conda install pytorch==1.4.0 torchvision==0.5.0 -c pytorch
+> torch==1.2.0
+> torchvision==0.2.1
+> FAILED!
 pip install -r requirements.txt
 ```
 
